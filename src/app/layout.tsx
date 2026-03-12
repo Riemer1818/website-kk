@@ -13,39 +13,35 @@ const gothicA1 = Gothic_A1({
 
 export const metadata: Metadata = {
   title: {
-    default: 'BetterBooking.ai — AI-Powered Airbnb Pricing',
-    template: '%s | BetterBooking.ai',
+    default: 'Keizer & De Kroon — Excellent in schilderwerken',
+    template: '%s | Keizer & De Kroon',
   },
   description:
-    'BetterBooking.ai uses AI to help you get better prices on Airbnb. ' +
-    'Free Chrome extension. Average savings: $300 on long stays.',
+    'Vernieuwend en duurzaam vakmanschap, met focus op schilderwerk in het hogere segment in Amsterdam en omgeving.',
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://betterbooking.ai',
-    siteName: 'BetterBooking.ai',
-    title: 'BetterBooking.ai — AI-Powered Airbnb Pricing',
+    locale: 'nl_NL',
+    url: 'https://www.keizerendekroon.nl',
+    siteName: 'Keizer & De Kroon',
+    title: 'Keizer & De Kroon — Excellent in schilderwerken',
     description:
-      'BetterBooking.ai uses AI to help you get better prices on Airbnb. Free Chrome extension.',
+      'Vernieuwend en duurzaam vakmanschap, met focus op schilderwerk in het hogere segment in Amsterdam en omgeving.',
     images: [
       {
-        url: '/logos/betterbooking-pink.png',
+        url: '/static/square_logo.png',
         width: 1200,
-        height: 630,
-        alt: 'BetterBooking.ai',
+        height: 1200,
+        alt: 'Keizer & De Kroon',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BetterBooking.ai — AI-Powered Airbnb Pricing',
+    title: 'Keizer & De Kroon — Excellent in schilderwerken',
     description:
-      'Free Chrome extension that uses AI to help you get better prices on Airbnb.',
+      'Vernieuwend en duurzaam vakmanschap, met focus op schilderwerk in het hogere segment in Amsterdam en omgeving.',
   },
-  metadataBase: new URL('https://betterbooking.ai'),
-  icons: {
-    icon: '/favicon.png',
-  },
+  metadataBase: new URL('https://www.keizerendekroon.nl'),
 }
 
 export default function RootLayout({

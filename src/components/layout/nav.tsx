@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
-import { NAV_LINKS, CHROME_STORE_URL } from '@/lib/constants'
+import { siteConfig } from '@/lib/constants'
 import { cn } from '@/lib/utils'
 
 export function Nav() {
@@ -52,41 +52,38 @@ export function Nav() {
       aria-label="Main navigation"
     >
       <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between">
-        {/* Logo + brand name */}
-        <Link href="/" aria-label="BetterBooking.ai — home" className="flex items-center gap-3">
+        {/* Square logo */}
+        <Link href="/" aria-label={`${siteConfig.name} — home`} className="flex items-center">
           <Image
-            src="/logos/handshake.svg"
-            alt=""
+            src={siteConfig.logo}
+            alt={siteConfig.name}
             width={48}
             height={48}
             priority
             className="size-12"
           />
-          <span className="font-bold text-white text-lg leading-tight hidden sm:block">
-            BetterBooking.ai
-          </span>
         </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {siteConfig.navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 relative group"
             >
               {link.label}
-              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#fc0a7e] origin-left scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
+              <span className="absolute -bottom-0.5 left-0 w-full h-px bg-[#c44b2a] origin-left scale-x-0 transition-transform duration-200 group-hover:scale-x-100" />
             </a>
           ))}
 
           <a
-            href={CHROME_STORE_URL}
-            className="ml-2 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#1b1b1b] transition-colors duration-200 hover:bg-[#fc0a7e] hover:text-white shadow-sm"
-            target={CHROME_STORE_URL !== '#' ? '_blank' : undefined}
-            rel={CHROME_STORE_URL !== '#' ? 'noopener noreferrer' : undefined}
+            href={siteConfig.primaryCta.url}
+            className="ml-2 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2 text-sm font-semibold text-[#1b1b1b] transition-colors duration-200 hover:bg-[#c44b2a] hover:text-white shadow-sm"
+            target={siteConfig.primaryCta.external ? '_blank' : undefined}
+            rel={siteConfig.primaryCta.external ? 'noopener noreferrer' : undefined}
           >
-            Add to Chrome
+            {siteConfig.primaryCta.text}
           </a>
         </div>
 
@@ -110,7 +107,7 @@ export function Nav() {
           className="md:hidden border-t border-white/10 bg-[#1b1b1b]/95"
         >
           <div className="flex flex-col gap-1 px-6 py-4">
-            {NAV_LINKS.map((link) => (
+            {siteConfig.navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -121,13 +118,13 @@ export function Nav() {
               </a>
             ))}
             <a
-              href={CHROME_STORE_URL}
+              href={siteConfig.primaryCta.url}
               onClick={() => setMobileOpen(false)}
-              className="mt-3 inline-flex justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1b1b1b] hover:bg-[#fc0a7e] hover:text-white transition-colors duration-200"
-              target={CHROME_STORE_URL !== '#' ? '_blank' : undefined}
-              rel={CHROME_STORE_URL !== '#' ? 'noopener noreferrer' : undefined}
+              className="mt-3 inline-flex justify-center rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#1b1b1b] hover:bg-[#c44b2a] hover:text-white transition-colors duration-200"
+              target={siteConfig.primaryCta.external ? '_blank' : undefined}
+              rel={siteConfig.primaryCta.external ? 'noopener noreferrer' : undefined}
             >
-              Add to Chrome — It&apos;s Free
+              {siteConfig.primaryCta.text}
             </a>
           </div>
         </div>

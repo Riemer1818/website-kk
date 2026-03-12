@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
-import { CHROME_STORE_URL } from '@/lib/constants'
+import { siteConfig } from '@/lib/constants'
 import {
   REVEAL_VARIANTS,
   STAGGER_VARIANTS,
@@ -44,14 +44,20 @@ export function HeroSection() {
             initial="hidden"
             animate="visible"
           >
-            {/* Eyebrow — no tracking-widest */}
+            {/* Header logo */}
             <motion.div
               variants={reveal}
               transition={REVEAL_TRANSITION}
-              className="inline-flex items-center gap-2 mb-6 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase text-white/70"
+              className="mb-6"
             >
-              <span className="inline-block size-1.5 rounded-full bg-[#fc0a7e]" aria-hidden />
-              Chrome Extension · Free to Install
+              <Image
+                src="/header_logo.png"
+                alt="Keizer & De Kroon"
+                width={800}
+                height={160}
+                priority
+                className="h-32 w-auto"
+              />
             </motion.div>
 
             {/* H1 */}
@@ -61,7 +67,7 @@ export function HeroSection() {
               className="text-white font-extrabold leading-[1.05] mb-6"
               style={{ fontSize: 'clamp(3rem, 7vw, 6rem)' }}
             >
-              Book Airbnb
+              {siteConfig.hero.headline}
               <br />
               <span
                 style={{
@@ -71,7 +77,7 @@ export function HeroSection() {
                   backgroundClip: 'text',
                 }}
               >
-                Smarter.
+                {siteConfig.hero.headlineAccent}
               </span>
             </motion.h1>
 
@@ -81,12 +87,8 @@ export function HeroSection() {
               transition={REVEAL_TRANSITION}
               className="text-white/75 font-light leading-relaxed mb-10"
               style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)', maxWidth: '480px' }}
-            >
-              BetterBooking.ai puts simple AI in your hands to secure a better Airbnb rate,{' '}
-              <strong className="text-white/90 font-semibold">
-                averaging a 12% discount.
-              </strong>
-            </motion.p>
+              dangerouslySetInnerHTML={{ __html: siteConfig.hero.subheadline.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white/90 font-semibold">$1</strong>') }}
+            />
 
             {/* CTAs */}
             <motion.div
@@ -95,19 +97,19 @@ export function HeroSection() {
               className="flex flex-wrap items-center gap-4"
             >
               <a
-                href={CHROME_STORE_URL}
-                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#1b1b1b] shadow-lg transition-[color,background-color,transform] duration-200 hover:bg-[#fc0a7e] hover:text-white hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-white"
-                target={CHROME_STORE_URL !== '#' ? '_blank' : undefined}
-                rel={CHROME_STORE_URL !== '#' ? 'noopener noreferrer' : undefined}
+                href={siteConfig.primaryCta.url}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#1b1b1b] shadow-lg transition-[color,background-color,transform] duration-200 hover:bg-[#c44b2a] hover:text-white hover:scale-[1.02] focus-visible:ring-2 focus-visible:ring-white"
+                target={siteConfig.primaryCta.external ? '_blank' : undefined}
+                rel={siteConfig.primaryCta.external ? 'noopener noreferrer' : undefined}
               >
-                Try It Free — Add to Chrome
+                {siteConfig.hero.ctaPrimary.text}
               </a>
 
               <a
-                href="#demo"
+                href={siteConfig.hero.ctaSecondary.href}
                 className="text-sm font-medium text-white/60 hover:text-white transition-colors duration-200 flex items-center gap-1.5 group"
               >
-                See How It Works
+                {siteConfig.hero.ctaSecondary.text}
                 <ChevronDown
                   size={16}
                   className="transition-transform duration-200 group-hover:translate-y-0.5"
@@ -128,24 +130,24 @@ export function HeroSection() {
           >
             <div className="absolute right-8 top-8 z-10">
               <Image
-                src="/images/hero-guest.jpg"
-                alt=""
+                src={siteConfig.hero.images[0].src}
+                alt={siteConfig.hero.images[0].alt}
                 width={320}
                 height={220}
                 className="rounded-2xl shadow-2xl object-cover"
-                style={{ transform: 'rotate(3deg)' }}
+                style={{ transform: `rotate(${siteConfig.hero.images[0].rotation}deg)` }}
                 priority
               />
             </div>
 
             <div className="absolute right-0 bottom-0 z-20">
               <Image
-                src="/images/hero-homes.jpg"
-                alt=""
+                src={siteConfig.hero.images[1].src}
+                alt={siteConfig.hero.images[1].alt}
                 width={360}
                 height={260}
                 className="rounded-2xl shadow-2xl object-cover"
-                style={{ transform: 'rotate(-2deg)' }}
+                style={{ transform: `rotate(${siteConfig.hero.images[1].rotation}deg)` }}
                 priority
               />
             </div>

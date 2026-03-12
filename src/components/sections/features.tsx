@@ -77,18 +77,6 @@ export function FeaturesSection() {
     >
       <div className="mx-auto max-w-[1200px] px-6">
         {/* Section header */}
-        <div className="mb-20 text-center">
-          <p className="mb-3 text-xs font-medium uppercase text-[#6b6b6b]">
-            How It Works
-          </p>
-          <h2
-            id="features-heading"
-            className="font-extrabold text-[#111] leading-tight"
-            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
-          >
-            Everything you need to book better
-          </h2>
-        </div>
 
         {/* Feature rows */}
         <div className="flex flex-col gap-24 md:gap-32">

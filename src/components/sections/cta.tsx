@@ -25,7 +25,6 @@ export function CtaSection() {
           transition={REVEAL_TRANSITION}
           className="mb-5 text-xs font-medium uppercase text-white/60"
         >
-          Free Chrome Extension
         </motion.p>
 
         {/* Heading */}
@@ -36,7 +35,7 @@ export function CtaSection() {
           className="font-extrabold text-white leading-tight mb-6"
           style={{ fontSize: 'clamp(2.25rem, 5vw, 4rem)' }}
         >
-          Ready to Book Smarter?
+          Geinteresseerd in hoogwaardig schilderwerk voor karaktervol vastgoed?
         </motion.h2>
 
         {/* Subheading */}
@@ -45,8 +44,7 @@ export function CtaSection() {
           transition={REVEAL_TRANSITION}
           className="text-white/75 text-lg leading-relaxed mb-10 max-w-[500px] mx-auto"
         >
-          Join 100,000+ travelers using AI to get better Airbnb prices.
-          Install in seconds, free forever.
+          Neem vandaag nog contact op voor een vrijblijvend gesprek.
         </motion.p>
 
         {/* Buttons */}
@@ -56,19 +54,17 @@ export function CtaSection() {
           className="flex flex-wrap items-center justify-center gap-4"
         >
           <a
-            href={CHROME_STORE_URL}
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#1b1b1b] shadow-lg transition-[color,background-color,transform] duration-200 hover:bg-[#fc0a7e] hover:text-white hover:scale-[1.02]"
-            target={CHROME_STORE_URL !== '#' ? '_blank' : undefined}
-            rel={CHROME_STORE_URL !== '#' ? 'noopener noreferrer' : undefined}
+            href="#contact"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-[#1b1b1b] shadow-lg transition-[color,background-color,transform] duration-200 hover:bg-[#c44b2a] hover:text-white hover:scale-[1.02]"
           >
-            Add to Chrome — It&apos;s Free
+            Vraag Offerte Aan
           </a>
 
           <a
             href={`mailto:${SUPPORT_EMAIL}`}
             className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-medium text-white ring-1 ring-inset ring-white/30 transition-[box-shadow] duration-200 hover:ring-white/90"
           >
-            Get in Touch
+            Neem Contact Op
           </a>
         </motion.div>
       </div>
