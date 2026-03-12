@@ -1,11 +1,11 @@
-import type { NextConfig } from 'next'
+import type { NextConfig } from "next";
 
-const config: NextConfig = {
-  output: 'export',
-  images: {
-    // Image optimization is not supported with static export
-    unoptimized: true,
-  },
-}
+const nextConfig: NextConfig = {
+	/* config options here */
+};
 
-export default config
+export default nextConfig;
+
+// added by create cloudflare to enable calling `getCloudflareContext()` in `next dev`
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
+initOpenNextCloudflareForDev();
