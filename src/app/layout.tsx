@@ -1,15 +1,6 @@
 import type { Metadata } from 'next'
-import { Gothic_A1 } from 'next/font/google'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
-
-const gothicA1 = Gothic_A1({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-gothic-a1',
-  display: 'swap',
-  preload: true,
-})
 
 export const metadata: Metadata = {
   title: {
@@ -50,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={gothicA1.variable}>
+    <html lang="en">
       <body className="antialiased">
         {children}
         <Toaster position="bottom-center" />

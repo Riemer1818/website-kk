@@ -30,7 +30,7 @@ export function Footer() {
   ].filter(Boolean) as Array<{ label: string; href: string; Icon: typeof Instagram }>
 
   return (
-    <footer className="bg-[#1b1b1b] border-t border-white/8">
+    <footer className="bg-white border-t border-black/8">
       <div className="mx-auto max-w-[1200px] px-6 py-12">
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -44,9 +44,9 @@ export function Footer() {
                 height={48}
                 className="size-12"
               />
-              <span className="font-bold text-white text-lg">{siteConfig.name}</span>
+              <span className="font-bold text-[#111] text-lg">{siteConfig.name}</span>
             </Link>
-            <p className="text-sm text-white/50 max-w-[260px] leading-relaxed">
+            <p className="text-sm text-[#6b6b6b] max-w-[260px] leading-relaxed">
               {siteConfig.tagline}
             </p>
           </div>
@@ -58,7 +58,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-white/50 hover:text-white transition-colors duration-200"
+                    className="text-sm text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -77,7 +77,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors duration-200 p-2.5"
+                  className="text-[#6b6b6b] hover:text-[#111] transition-colors duration-200 p-2.5"
                 >
                   <Icon size={18} strokeWidth={1.5} />
                 </a>
@@ -87,8 +87,8 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="mt-10 pt-6 border-t border-white/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="text-xs text-white/50">
+        <div className="mt-10 pt-6 border-t border-black/8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="text-xs text-[#6b6b6b]">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
@@ -96,23 +96,23 @@ export function Footer() {
               <>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="text-xs text-white/50 hover:text-white/80 transition-colors duration-200"
+                  className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
                 >
                   {siteConfig.email}
                 </a>
-                <span className="text-white/25" aria-hidden>·</span>
+                <span className="text-black/25" aria-hidden>·</span>
               </>
             )}
             <Link
               href="/privacy"
-              className="text-xs text-white/50 hover:text-white/80 transition-colors duration-200"
+              className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
             >
               Privacy Policy
             </Link>
-            <span className="text-white/25" aria-hidden>·</span>
+            <span className="text-black/25" aria-hidden>·</span>
             <Link
               href="/support"
-              className="text-xs text-white/50 hover:text-white/80 transition-colors duration-200"
+              className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
             >
               Support
             </Link>

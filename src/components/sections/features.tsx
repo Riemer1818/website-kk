@@ -34,18 +34,25 @@ function FeatureRow({ feature, index }: { feature: FeatureItem; index: number })
             {feature.badge}
           </span>
         )}
-        <p className="mb-3 text-xs font-medium uppercase text-[#6b6b6b]">
-          0{index + 1}
-        </p>
         <h2
-          className="mb-5 font-extrabold text-[#111] leading-tight"
+          className="mb-5 font-extrabold text-[#3a2313] leading-tight"
           style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
         >
           {feature.title}
         </h2>
-        <p className="text-[#6b6b6b] leading-relaxed text-base md:text-lg">
-          {feature.body}
-        </p>
+        <div className="text-[#6b6b6b] leading-relaxed text-base md:text-lg">
+          {feature.body.split('\n').map((line, idx) => {
+            if (line.startsWith('• ')) {
+              return (
+                <div key={idx} className="flex items-start gap-3 mb-3">
+                  <span className="text-[#ff656a] mt-1 text-xl">•</span>
+                  <span>{line.substring(2)}</span>
+                </div>
+              )
+            }
+            return <p key={idx} className="mb-3">{line}</p>
+          })}
+        </div>
       </motion.div>
 
       {/* Image */}

@@ -29,8 +29,7 @@ export const siteConfig = {
   navLinks: [
     { label: 'Over Ons', href: '#about' },
     { label: 'Diensten', href: '#features' },
-    { label: 'Werkwijze', href: '#demo' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Contact', href: '/contact' },
   ] as NavLink[],
 
   // Hero Section
@@ -58,22 +57,22 @@ export const siteConfig = {
     {
       title: 'Hoogwaardig Binnenschilderwerk',
       body: 'Keizer & De Kroon verzorgt hoogwaardig binnenschilderwerk voor panden waar uitstraling, detail en afwerking van belang zijn. Onze werkzaamheden vinden voornamelijk plaats in karaktervol commercieel en particulier vastgoed in het centrum van Amsterdam.',
-      image: '/images/service-residential.jpg',
+      image: '/images/binnenschilderwerk.JPEG',
       imageAlt: 'Hoogwaardig binnenschilderwerk',
       imageLeft: false,
     },
     {
-      title: 'Vastgoedonderhoud',
-      body: 'Wij verzorgen professioneel vastgoedonderhoud waarbij kwaliteit en zorgvuldigheid voorop staan. Blijft uw pand in gebruik tijdens onze werkzaamheden? Dan stemmen wij onze werkwijze hier zorgvuldig op af, zodat processen en het dagelijks gebruik zo min mogelijk verstoord worden.',
-      image: '/images/service-commercial.jpg',
-      imageAlt: 'Professioneel vastgoedonderhoud',
+      title: 'Onze kracht is karaktervol vastgoed',
+      body: '• Gespecialiseerd in schilderwerk voor karaktervol vastgoed\n• Zorgvuldige uitvoering met oog voor detail en afwerking\n• Werkzaamheden afgestemd op panden die in gebruik blijven\n• Heldere planning en duidelijke communicatie\n• Actief in het centrum van Amsterdam en omgeving',
+      image: '/images/kracht.JPEG',
+      imageAlt: 'Waarom Keizer & De Kroon',
       imageLeft: true,
     },
     {
-      title: 'Duurzaam Vakmanschap',
-      body: 'Met jarenlange ervaring en oog voor detail leveren wij duurzaam vakmanschap in het hogere segment. Van voorbereiding tot oplevering: wij zorgen voor een resultaat waar u trots op kunt zijn.',
-      image: '/images/service-renovation.jpg',
-      imageAlt: 'Duurzaam en vernieuwend vakmanschap',
+      title: 'Vastgoedonderhoud',
+      body: 'Wij verzorgen professioneel vastgoedonderhoud waarbij kwaliteit en zorgvuldigheid voorop staan. Blijft uw pand in gebruik tijdens onze werkzaamheden? Dan stemmen wij onze werkwijze hier zorgvuldig op af, zodat processen en het dagelijks gebruik zo min mogelijk verstoord worden.',
+      image: '/images/vastgoedonderhoud.JPEG',
+      imageAlt: 'Professioneel vastgoedonderhoud',
       imageLeft: false,
     },
   ] as FeatureItem[],
