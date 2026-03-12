@@ -45,7 +45,7 @@ export function Nav() {
       role="navigation"
       aria-label="Main navigation"
     >
-      <div className="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-20">
+      <div className="mx-auto max-w-[1200px] px-4 sm:px-6 flex items-center justify-between h-16 sm:h-20">
         {/* Square logo */}
         <Link href="/" aria-label={`${siteConfig.name} — home`} className="flex items-center">
           <Image
@@ -74,13 +74,13 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-3 text-[#111] hover:text-[#c44b2a]"
+          className="md:hidden p-3 -mr-3 text-[#111] hover:text-[#c44b2a] min-w-[44px] min-h-[44px] flex items-center justify-center"
           onClick={() => setMobileOpen((v) => !v)}
           aria-expanded={mobileOpen}
           aria-controls="mobile-menu"
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
-          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -91,13 +91,13 @@ export function Nav() {
           ref={mobileMenuRef}
           className="md:hidden border-t border-black/10 bg-white"
         >
-          <div className="flex flex-col gap-1 px-6 py-4">
+          <div className="flex flex-col gap-1 px-4 py-2">
             {siteConfig.navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="py-3 text-base font-medium text-[#6b6b6b] hover:text-[#111] border-b border-black/8 last:border-0 transition-colors duration-200"
+                className="py-4 text-base font-medium text-[#6b6b6b] hover:text-[#111] border-b border-black/8 last:border-0 transition-colors duration-200 min-h-[44px] flex items-center"
               >
                 {link.label}
               </a>

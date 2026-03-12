@@ -26,44 +26,36 @@ export function HeroSection() {
       aria-label="Hero"
     >
 
-      <div className="relative mx-auto max-w-[1400px] px-6 py-20 w-full mt-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+      <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 py-12 sm:py-20 w-full mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Logo - left side */}
-          <motion.div
-            className="flex flex-col items-center justify-start gap-4"
-            initial={shouldReduce ? false : { opacity: 0, x: -30 }}
-            animate={shouldReduce ? false : { opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: 'easeOut', delay: HERO_ENTRANCE_DELAY }}
-          >
+          <div className="flex flex-col items-center lg:items-start justify-start gap-3 sm:gap-4">
             <Image
               src="/header_logo.png"
               alt="Keizer & De Kroon"
               width={500}
               height={100}
               priority
-              className="w-full max-w-[500px] h-auto"
+              loading="eager"
+              className="w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] h-auto"
             />
-            <p className="text-xl md:text-2xl text-white font-semibold tracking-wide">
+            <p className="text-base sm:text-xl md:text-2xl text-white font-semibold tracking-wide text-center lg:text-left">
               Excellent in schilderwerken
             </p>
-          </motion.div>
+          </div>
 
-          {/* Photo - right side, overflowing */}
-          <motion.div
-            className="relative lg:absolute lg:-right-12 lg:top-1/2 lg:-translate-y-1/2 lg:w-[45vw] lg:max-w-[600px]"
-            initial={shouldReduce ? false : { opacity: 0, x: 30 }}
-            animate={shouldReduce ? false : { opacity: 1, x: 0 }}
-            transition={{ duration: 1.2, ease: 'easeOut', delay: HERO_ENTRANCE_DELAY + 0.2 }}
-          >
+          {/* Photo - right side, responsive positioning */}
+          <div className="relative w-full lg:absolute lg:-right-12 lg:top-1/2 lg:-translate-y-1/2 lg:w-[45vw] lg:max-w-[600px]">
             <Image
               src="/showcase-photo.JPEG"
               alt="Keizer & De Kroon schilderwerk"
               width={600}
               height={450}
               priority
-              className="w-full h-auto rounded-l-2xl shadow-2xl"
+              loading="eager"
+              className="w-full h-auto rounded-lg lg:rounded-l-2xl shadow-2xl"
             />
-          </motion.div>
+          </div>
         </div>
       </div>
 

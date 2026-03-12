@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   },
   description:
     'Vernieuwend en duurzaam vakmanschap, met focus op schilderwerk in het hogere segment in Amsterdam en omgeving.',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=5',
   openGraph: {
     type: 'website',
     locale: 'nl_NL',
