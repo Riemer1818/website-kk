@@ -27,7 +27,6 @@ export const siteConfig = {
 
   // Navigation
   navLinks: [
-    { label: 'Over Ons', href: '#about' },
     { label: 'Diensten', href: '#features' },
     { label: 'Contact', href: '/contact' },
   ] as NavLink[],
