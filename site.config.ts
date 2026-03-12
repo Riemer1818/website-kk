@@ -62,9 +62,9 @@ export const siteConfig = {
       imageLeft: false,
     },
     {
-      title: 'Onze kracht is karaktervol vastgoed',
+      title: 'Met oog voor detail',
       body: '• Gespecialiseerd in schilderwerk voor karaktervol vastgoed\n• Zorgvuldige uitvoering met oog voor detail en afwerking\n• Werkzaamheden afgestemd op panden die in gebruik blijven\n• Heldere planning en duidelijke communicatie\n• Actief in het centrum van Amsterdam en omgeving',
-      image: '/images/kracht.JPEG',
+      image: '/images/detail.JPEG',
       imageAlt: 'Waarom Keizer & De Kroon',
       imageLeft: true,
     },

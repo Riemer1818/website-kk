@@ -3,13 +3,6 @@ import Link from 'next/link'
 import { Instagram, Twitter, Facebook } from 'lucide-react'
 import { siteConfig } from '@/lib/constants'
 
-const footerLinks = [
-  { label: 'About', href: '/#about' },
-  { label: 'Features', href: '/#features' },
-  { label: 'Support', href: '/support' },
-  { label: 'Privacy', href: '/privacy' },
-]
-
 export function Footer() {
   const socialLinks = [
     siteConfig.social.instagram && {
@@ -51,21 +44,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Nav links */}
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap gap-6">
-              {footerLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
 
           {/* Social icons */}
           {socialLinks.length > 0 && (
@@ -91,32 +69,14 @@ export function Footer() {
           <p className="text-xs text-[#6b6b6b]">
             &copy; {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            {siteConfig.email && (
-              <>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
-                >
-                  {siteConfig.email}
-                </a>
-                <span className="text-black/25" aria-hidden>·</span>
-              </>
-            )}
-            <Link
-              href="/privacy"
+          {siteConfig.email && (
+            <a
+              href={`mailto:${siteConfig.email}`}
               className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
             >
-              Privacy Policy
-            </Link>
-            <span className="text-black/25" aria-hidden>·</span>
-            <Link
-              href="/support"
-              className="text-xs text-[#6b6b6b] hover:text-[#111] transition-colors duration-200"
-            >
-              Support
-            </Link>
-          </div>
+              {siteConfig.email}
+            </a>
+          )}
         </div>
       </div>
     </footer>
