@@ -1,0 +1,102 @@
+'use client'
+
+import Image from 'next/image'
+import { motion, useReducedMotion } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import { FEATURES } from '@/lib/constants'
+import { REVEAL_VARIANTS, STAGGER_VARIANTS, REVEAL_TRANSITION, VIEWPORT_CONFIG } from '@/lib/animations'
+import type { FeatureItem } from '@/types'
+
+function FeatureRow({ feature, index }: { feature: FeatureItem; index: number }) {
+  const shouldReduce = useReducedMotion()
+  const stagger = shouldReduce ? {} : STAGGER_VARIANTS
+  const reveal = shouldReduce ? {} : REVEAL_VARIANTS
+
+  return (
+    <motion.div
+      className={cn(
+        'flex flex-col items-center gap-12 lg:gap-20',
+        feature.imageLeft ? 'lg:flex-row-reverse' : 'lg:flex-row',
+      )}
+      variants={stagger}
+      initial="hidden"
+      whileInView="visible"
+      viewport={VIEWPORT_CONFIG}
+    >
+      {/* Text block */}
+      <motion.div
+        className="flex-1 max-w-[440px]"
+        variants={reveal}
+        transition={REVEAL_TRANSITION}
+      >
+        {feature.badge && (
+          <span className="inline-block mb-4 rounded-full bg-[#ff656a]/10 px-3 py-1 text-xs font-semibold text-[#ff656a]">
+            {feature.badge}
+          </span>
+        )}
+        <p className="mb-3 text-xs font-medium uppercase text-[#6b6b6b]">
+          0{index + 1}
+        </p>
+        <h2
+          className="mb-5 font-extrabold text-[#111] leading-tight"
+          style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+        >
+          {feature.title}
+        </h2>
+        <p className="text-[#6b6b6b] leading-relaxed text-base md:text-lg">
+          {feature.body}
+        </p>
+      </motion.div>
+
+      {/* Image */}
+      <motion.div
+        className="flex-1 flex justify-center"
+        variants={reveal}
+        transition={REVEAL_TRANSITION}
+      >
+        <div className="relative w-full max-w-[480px]">
+          <Image
+            src={feature.image}
+            alt={feature.imageAlt}
+            width={480}
+            height={340}
+            className="rounded-xl shadow-xl object-cover w-full"
+          />
+        </div>
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export function FeaturesSection() {
+  return (
+    <section
+      id="features"
+      className="bg-white py-24 md:py-32"
+      aria-labelledby="features-heading"
+    >
+      <div className="mx-auto max-w-[1200px] px-6">
+        {/* Section header */}
+        <div className="mb-20 text-center">
+          <p className="mb-3 text-xs font-medium uppercase text-[#6b6b6b]">
+            How It Works
+          </p>
+          <h2
+            id="features-heading"
+            className="font-extrabold text-[#111] leading-tight"
+            style={{ fontSize: 'clamp(2rem, 4vw, 3.25rem)' }}
+          >
+            Everything you need to book better
+          </h2>
+        </div>
+
+        {/* Feature rows */}
+        <div className="flex flex-col gap-24 md:gap-32">
+          {FEATURES.map((feature, i) => (
+            <FeatureRow key={feature.title} feature={feature} index={i} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

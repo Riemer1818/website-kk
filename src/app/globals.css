@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   Brand Tokens — BetterBooking.ai
+   Coral → Purple gradient identity, dark sections
+   ============================================================ */
+
+@theme inline {
+  /* shadcn/ui system tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-gothic-a1);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  /* === BetterBooking Brand Colors === */
+  --color-coral:         #ff656a;
+  --color-coral-light:   #ff8a8e;
+  --color-purple-deep:   #602bb6;
+  --color-purple-mid:    #6e2ed8;
+  --color-purple-light:  #955df1;
+  --color-amethyst:      #350e47;
+  --color-pink:          #fc0a7e;
+  --color-pink-muted:    #b32e6e;
+  --color-brand-dark:    #1b1b1b;
+  --color-brand-surface: #242424;
+  --color-brand-muted:   #6b6b6b;
+  --color-brand-muted-light: #a8a8a8;
+}
+
+:root {
+  --radius: 0.625rem;
+  /* shadcn/ui semantic tokens mapped to brand */
+  --background: #ffffff;
+  --foreground: #111111;
+  --card: #ffffff;
+  --card-foreground: #111111;
+  --popover: #ffffff;
+  --popover-foreground: #111111;
+  --primary: #ff656a;
+  --primary-foreground: #ffffff;
+  --secondary: #f5f5f5;
+  --secondary-foreground: #111111;
+  --muted: #f5f5f5;
+  --muted-foreground: #6b6b6b;
+  --accent: #955df1;
+  --accent-foreground: #ffffff;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #fc0a7e;
+  --sidebar: #f5f5f5;
+  --sidebar-foreground: #111111;
+  --sidebar-primary: #ff656a;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f0f0f0;
+  --sidebar-accent-foreground: #111111;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #fc0a7e;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-gothic-a1), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Heading baseline */
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  /* Body text */
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Accessible focus style — never outline: none */
+  :focus-visible {
+    outline: 2px solid var(--color-pink);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Buttons and links: disable tap highlight, enable touch manipulation */
+  a, button, [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Stat numbers: prevent layout shift during animation */
+  [data-stat] {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Smooth scrolling for anchor links */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ============================================================
+   Brand Gradient Utilities
+   ============================================================ */
+.gradient-hero {
+  background: linear-gradient(135deg, #ff656a 0%, #350e47 100%);
+}
+
+.gradient-brand {
+  background: linear-gradient(135deg, #ff656a 0%, #602bb6 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #ff656a 0%, #955df1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
