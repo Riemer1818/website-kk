@@ -29,19 +29,21 @@ export function HeroSection() {
       <div className="relative mx-auto max-w-[1400px] px-4 sm:px-6 py-12 sm:py-20 w-full mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Logo - left side */}
-          <div className="flex flex-col items-center lg:items-start justify-start gap-3 sm:gap-4 w-full">
-            <Image
-              src="/header_logo.png"
-              alt="Keizer & De Kroon"
-              width={500}
-              height={100}
-              priority
-              loading="eager"
-              className="w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] h-auto mx-auto lg:mx-0"
-            />
-            <p className="text-base sm:text-xl md:text-2xl text-white font-semibold tracking-wide text-center lg:text-left w-full">
-              Excellent in schilderwerken
-            </p>
+          <div className="flex flex-col items-center lg:items-start justify-start gap-3 sm:gap-4">
+            <div className="flex flex-col items-center gap-3 sm:gap-4">
+              <Image
+                src="/header_logo.png"
+                alt="Keizer & De Kroon"
+                width={500}
+                height={100}
+                priority
+                loading="eager"
+                className="w-full max-w-[280px] sm:max-w-[400px] lg:max-w-[500px] h-auto"
+              />
+              <p className="text-base sm:text-xl md:text-2xl text-white font-semibold tracking-wide text-center lg:text-left">
+                Excellent in schilderwerken
+              </p>
+            </div>
           </div>
 
           {/* Photo - right side, responsive positioning */}
