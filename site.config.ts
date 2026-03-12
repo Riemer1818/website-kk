@@ -9,7 +9,7 @@ export const siteConfig = {
   // Contact
   email: 'info@keizerendekroon.nl',
   phone: '(020) 261 4972',
-  address: 'Amsterdam',
+  address: 'Prinsengracht 343D 1016HK Amsterdam',
 
   // Social
   social: {
